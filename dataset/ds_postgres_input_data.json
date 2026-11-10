@@ -1,0 +1,12 @@
+{
+	"name": "ds_postgres_input_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_postgresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": []
+	}
+}
