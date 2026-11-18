@@ -143,7 +143,7 @@
 					"notebookPath": "/adb-caresync/adb-caresync/Landing_to_Bronze",
 					"baseParameters": {
 						"source_system": {
-							"value": "@activity('Read config details').output.firstRow.soure_system",
+							"value": "@activity('Read config details').output.firstRow.source_system",
 							"type": "Expression"
 						},
 						"table_name": {
