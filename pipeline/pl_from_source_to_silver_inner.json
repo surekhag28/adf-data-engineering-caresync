@@ -3,6 +3,23 @@
 	"properties": {
 		"activities": [
 			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "start_time",
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-ddThh:mm:03')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
 				"name": "Read config details",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -31,23 +48,6 @@
 				}
 			},
 			{
-				"name": "Set variable1",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "start_time",
-					"value": {
-						"value": "@formatDateTime(utcNow(),'yyyy-mm-ddThh:mm:03')",
-						"type": "Expression"
-					}
-				}
-			},
-			{
 				"name": "Source to landing ingestion",
 				"type": "Copy",
 				"dependsOn": [
@@ -66,7 +66,7 @@
 				],
 				"policy": {
 					"timeout": "0.12:00:00",
-					"retry": 0,
+					"retry": 2,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
@@ -113,7 +113,7 @@
 						"parameters": {
 							"container": "landing",
 							"folder": {
-								"value": "@concat(activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n)",
+								"value": "@concat(\n    activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n\n)",
 								"type": "Expression"
 							}
 						}
@@ -123,7 +123,8 @@
 		],
 		"parameters": {
 			"table_id": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "1"
 			}
 		},
 		"variables": {

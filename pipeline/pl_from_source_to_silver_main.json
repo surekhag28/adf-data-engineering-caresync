@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Read Config",
+				"name": "Read config table",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select table_id from ctrl.table_config where source_system='@{pipeline().parameters.source_system}'",
+							"value": "select table_id FROM ctrl.table_config where is_active=1 and source_system='@{pipeline().parameters.source_system}';",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -36,7 +36,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Read Config",
+						"activity": "Read config table",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Read Config').output.value",
+						"value": "@activity('Read config table').output.value",
 						"type": "Expression"
 					},
 					"isSequential": false,
@@ -83,12 +83,6 @@
 			}
 		},
 		"variables": {
-			"test": {
-				"type": "Integer"
-			},
-			"start_time": {
-				"type": "String"
-			},
 			"table_id": {
 				"type": "String"
 			}
