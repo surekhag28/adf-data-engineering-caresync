@@ -321,7 +321,7 @@
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Landing to bronze",
+						"activity": "Bronze to Silver",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -355,7 +355,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "update ctrl.watermark\nset watermark=SYSUTCDATETIME()\nwhere table_id=@{pipeline().parameters.table_id}",
+											"value": "update ctrl.watermark\nset watermark_value=SYSUTCDATETIME()\nwhere table_id=@{pipeline().parameters.table_id}",
 											"type": "Expression"
 										}
 									}
