@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
+				"name": "Set start time",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -184,7 +184,7 @@
 						]
 					},
 					{
-						"activity": "Set variable1",
+						"activity": "Set start time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -377,7 +377,7 @@
 											"parameters": {
 												"container": "landing",
 												"folder": {
-													"value": "@concat(\n    activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n\n)",
+													"value": "@concat(\n    activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n)",
 													"type": "Expression"
 												}
 											}
@@ -395,7 +395,7 @@
 									"dependsOn": [],
 									"policy": {
 										"timeout": "0.12:00:00",
-										"retry": 2,
+										"retry": 0,
 										"retryIntervalInSeconds": 30,
 										"secureOutput": false,
 										"secureInput": false
@@ -406,7 +406,7 @@
 											"type": "BinarySource",
 											"storeSettings": {
 												"type": "AzureBlobFSReadSettings",
-												"recursive": true,
+												"recursive": false,
 												"modifiedDatetimeStart": {
 													"value": "@variables('watermark_value')",
 													"type": "Expression"
@@ -445,7 +445,7 @@
 											"parameters": {
 												"container": "landing",
 												"folder": {
-													"value": "@concat(\n    activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n\n)",
+													"value": "@concat(\n    activity('Read config details').output.firstRow.source_system,\n    '/',\n    activity('Read config details').output.firstRow.source_table_name,\n    '/',\n    variables('start_time')\n)\n",
 													"type": "Expression"
 												}
 											}
