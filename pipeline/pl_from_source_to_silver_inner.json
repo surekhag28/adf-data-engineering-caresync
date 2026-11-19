@@ -82,7 +82,7 @@
 							"type": "Expression"
 						},
 						"source_file_format": {
-							"value": "@activity('Read config details').output.firstRow.source_file_fromat",
+							"value": "@activity('Read config details').output.firstRow.source_file_format",
 							"type": "Expression"
 						}
 					}
