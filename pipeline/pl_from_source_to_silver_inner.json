@@ -390,7 +390,7 @@
 							"value": "adls_csv",
 							"activities": [
 								{
-									"name": "Ingest CSV from sourec to landing",
+									"name": "Ingest CSV from source to landing",
 									"type": "Copy",
 									"dependsOn": [],
 									"policy": {
@@ -432,7 +432,7 @@
 											"parameters": {
 												"container": "source",
 												"folder": {
-													"value": "@activity('Read Watermark').output.firstRow.source_path",
+													"value": "@activity('Read config details').output.firstRow.source_path",
 													"type": "Expression"
 												}
 											}
