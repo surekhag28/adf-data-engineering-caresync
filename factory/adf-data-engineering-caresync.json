@@ -4,7 +4,7 @@
 		"globalParameters": {
 			"email_recipient": {
 				"type": "string",
-				"value": "surekhag1616@gmail.cmom"
+				"value": "surekhag1616@gmail.com"
 			},
 			"env": {
 				"type": "string",
