@@ -1,0 +1,12 @@
+{
+	"name": "adf-data-engineering-caresync",
+	"properties": {
+		"globalParameters": {
+			"email_recipient": {
+				"type": "string",
+				"value": "surekhag1616@gmail.cmom"
+			}
+		}
+	},
+	"location": "australiasoutheast"
+}
