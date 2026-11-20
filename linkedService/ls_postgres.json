@@ -1,5 +1,5 @@
 {
-	"name": "ls_postgresql",
+	"name": "ls_postgres",
 	"properties": {
 		"annotations": [],
 		"type": "PostgreSqlV2",

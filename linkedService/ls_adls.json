@@ -1,5 +1,5 @@
 {
-	"name": "ls_adlscaresync",
+	"name": "ls_adls",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobFS",
